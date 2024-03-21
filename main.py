@@ -33,6 +33,10 @@ def host_website():
     save_file('templates/sites/' + website_name + '.html', website_code)
     
     return "Website hosted successfully! View it <a href='/sites/" + website_name + ".html'>here.</a>"
+@app.route('/panel')
+def panel():
+    # ye i gotta make some logic for this lol
+    return send_from_directory('templates', 'panel.html')
 
 @app.before_request
 def check_banned_ip():
