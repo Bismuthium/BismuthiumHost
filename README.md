@@ -1,3 +1,4 @@
+## WARNING: This site crashes a lot
 # BismuthiumHost
 Host websites in the cloud for free!
 
