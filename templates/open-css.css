@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:slnt@-10..0&display=swap');
+
+:root {
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.menubar {
+  width:100%;
+  height:2em;
+  text-align:left;
+  box-shadow: 0px 3px 3px gray;
+  color:white;
+  background-color:#a06efe;
+}
+
+.menubar.flex {
+  display:flex;
+}
+
+.menubar.inline {
+  display:inline;
+}
+
+.menubar.center {
+  text-align:center;
+}
+
+.menubar.center p {
+  text-align:center;
+}
+
+.menubar.center a {
+  text-align:center;
+}
+
+.menubar.right {
+  float:right;
+}
+
+.menubar.space p {
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.menubar.space a {
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.menubar.red {
+  background-color:#FF817E;
+}
+
+.menubar.green {
+  background-color:#90ee90;
+}
+
+.menubar.blue {
+  background-color:#ADD8E6;
+  color:black;
+}
+
+.menubar.brown {
+  background-color:#C4A484;
+}
+
+.menubar.white {
+  background-color:#FFFFFF;
+  color:black;
+}
+
+.menubar p {
+  margin:0px;
+  padding:0px;
+  vertical-align:center;
+  line-height: 2em;
+}
+
+.menubar a {
+  margin:0px;
+  padding:0px;
+  vertical-align:center;
+  line-height: 2em;
+}
+
+.content {
+  margin-left: 12px;
+}
+
+.container {
+  background-color: #eeeeee;
+  margin: 5px;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 2px gray);
+  width: fit-content;
+}
+
+.container p {
+  padding: 15px;
+}
+
+.footer {
+  background-color: #3c3c3c;
+  text-align: center;
+  height: 2em;
+}
+
+.footer p {
+  vertical-align: center;
+  line-height: 2em;
+  color: white;
+}
+
+button {
+  font-family: "Inter", sans-serif;
+  margin: 5px;
+  padding: 10px;
+  background-color: #905eee;
+  color:white;
+  cursor:pointer;
+  border:none;
+  border-radius: 10px;
+  filter: drop-shadow(2px 2px 2px gray);
+}
+
+button:hover {
+  background-color: #703ece;
+}
+
+button:active {
+  background-color: #501eae;
+}
+
+a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a.red {
+  color:#FF817E;
+}
+
+a.green {
+  color:#90ee90;
+}
+
+a.blue {
+  color:#ADD8E6;
+}
+
+a.brown {
+  color:#C4A484;
+}
+
+a.white {
+  color:#FFFFFF;
+}
+
+.hero {
+  height:calc(fit-content + 100px);
+  width:100%;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  background-color:#a06efe;
+  color:white;
+} 
+
+.hero.red {
+  background-color:#FF817E;
+}
+
+.hero.green {
+  background-color:#90ee90;
+}
+
+.hero.blue {
+  background-color:#ADD8E6;
+  color:black;
+}
+
+.hero.brown {
+  background-color:#C4A484;
+}
+
+.hero.white {
+  background-color:#FFFFFF;
+  color:black;
+}
