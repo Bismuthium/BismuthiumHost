@@ -6,84 +6,86 @@
 
 body {
   margin: 0;
+  background-color: #121212;
+  color: #ffffff;
 }
 
 .menubar {
-  width:100%;
-  height:2em;
-  text-align:left;
-  box-shadow: 0px 3px 3px gray;
-  color:white;
-  background-color:#a06efe;
+  width: 100%;
+  height: 2em;
+  text-align: left;
+  box-shadow: 0px 3px 3px rgba(255, 255, 255, 0.1);
+  color: white;
+  background-color: #333333; /* Darker shade for the menu bar */
 }
 
 .menubar.flex {
-  display:flex;
+  display: flex;
 }
 
 .menubar.inline {
-  display:inline;
+  display: inline;
 }
 
 .menubar.center {
-  text-align:center;
+  text-align: center;
 }
 
 .menubar.center p {
-  text-align:center;
+  text-align: center;
 }
 
 .menubar.center a {
-  text-align:center;
+  text-align: center;
 }
 
 .menubar.right {
-  float:right;
+  float: right;
 }
 
 .menubar.space p {
-  padding-left:10px;
-  padding-right:10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .menubar.space a {
-  padding-left:10px;
-  padding-right:10px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 .menubar.red {
-  background-color:#FF817E;
+  background-color: #6b0505; /* Dark red */
 }
 
 .menubar.green {
-  background-color:#90ee90;
+  background-color: #1b7837; /* Dark green */
 }
 
 .menubar.blue {
-  background-color:#ADD8E6;
-  color:black;
+  background-color: #0a4e6c; /* Dark blue */
+  color: #ffffff; /* White text for contrast */
 }
 
 .menubar.brown {
-  background-color:#C4A484;
+  background-color: #4c2f1d; /* Dark brown */
 }
 
 .menubar.white {
-  background-color:#FFFFFF;
-  color:black;
+  background-color: #666666; /* Slightly lighter shade for the menu bar */
+  color: black; /* Black text for contrast */
 }
 
 .menubar p {
-  margin:0px;
-  padding:0px;
-  vertical-align:center;
+  margin: 0px;
+  padding: 0px;
+  vertical-align: center;
   line-height: 2em;
 }
 
 .menubar a {
-  margin:0px;
-  padding:0px;
-  vertical-align:center;
+  margin: 0px;
+  padding: 0px;
+  vertical-align: center;
   line-height: 2em;
 }
 
@@ -92,10 +94,10 @@ body {
 }
 
 .container {
-  background-color: #eeeeee;
+  background-color: #333333; /* Darker shade for the container */
   margin: 5px;
   border-radius: 10px;
-  filter: drop-shadow(2px 2px 2px gray);
+  filter: drop-shadow(2px 2px 2px rgba(255, 255, 255, 0.1)); /* Slightly lighter shadow */
   width: fit-content;
 }
 
@@ -104,7 +106,7 @@ body {
 }
 
 .footer {
-  background-color: #3c3c3c;
+  background-color: #1f1f1f; /* Darker shade for the footer */
   text-align: center;
   height: 2em;
 }
@@ -119,20 +121,20 @@ button {
   font-family: "Inter", sans-serif;
   margin: 5px;
   padding: 10px;
-  background-color: #905eee;
-  color:white;
-  cursor:pointer;
-  border:none;
+  background-color: #333333; /* Dark grey */
+  color: white;
+  cursor: pointer;
+  border: none;
   border-radius: 10px;
-  filter: drop-shadow(2px 2px 2px gray);
+  filter: drop-shadow(2px 2px 2px rgba(255, 255, 255, 0.1)); /* Slightly lighter shadow */
 }
 
 button:hover {
-  background-color: #703ece;
+  background-color: #1f1f1f; /* Darker shade for hover */
 }
 
 button:active {
-  background-color: #501eae;
+  background-color: #0d0d0d; /* Even darker shade for active state */
 }
 
 a {
@@ -141,53 +143,53 @@ a {
 }
 
 a.red {
-  color:#FF817E;
+  color: #6b0505; /* Dark red */
 }
 
 a.green {
-  color:#90ee90;
+  color: #1b7837; /* Dark green */
 }
 
 a.blue {
-  color:#ADD8E6;
+  color: #0a4e6c; /* Dark blue */
 }
 
 a.brown {
-  color:#C4A484;
+  color: #4c2f1d; /* Dark brown */
 }
 
 a.white {
-  color:#FFFFFF;
+  color: #666666; /* Slightly lighter shade */
 }
 
 .hero {
-  height:calc(fit-content + 100px);
-  width:100%;
-  display:flex;
-  justify-content:center;
+  height: calc(fit-content + 100px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  background-color:#a06efe;
-  color:white;
-} 
+  background-color: #333333; /* Darker shade for hero */
+  color: white;
+}
 
 .hero.red {
-  background-color:#FF817E;
+  background-color: #6b0505; /* Dark red */
 }
 
 .hero.green {
-  background-color:#90ee90;
+  background-color: #1b7837; /* Dark green */
 }
 
 .hero.blue {
-  background-color:#ADD8E6;
-  color:black;
+  background-color: #0a4e6c; /* Dark blue */
+  color: #ffffff; /* White text for contrast */
 }
 
 .hero.brown {
-  background-color:#C4A484;
+  background-color: #4c2f1d; /* Dark brown */
 }
 
 .hero.white {
-  background-color:#FFFFFF;
-  color:black;
+  background-color: #666666; /* Slightly lighter shade */
+  color: black; /* Black text for contrast */
 }
