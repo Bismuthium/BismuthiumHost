@@ -1,6 +1,7 @@
 from flask import Flask, send_from_directory, request, redirect
 from better_profanity import profanity
 import json
+MAX_CODE_SIZE = 5 * 1024 * 1024  # 5MB
 
 app = Flask(__name__)
 
@@ -24,6 +25,9 @@ def host_website():
     website_name = profanity.censor(request.form['WebName'])
     website_code = profanity.censor(request.form['WebCode'])
     
+    if len(website_code) > MAX_CODE_SIZE:
+        return "Error: Website code exceeds the size limit of 5MB."
+
     # Log IP address and website name, for safety
     ip_address = request.remote_addr
     log_message = f"{ip_address} has uploaded {website_name}"
