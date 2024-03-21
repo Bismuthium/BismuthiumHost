@@ -23,10 +23,13 @@ def save_file(file_path, content):
 @app.route('/host', methods=['POST'])
 def host_website():
     website_name = profanity.censor(request.form['WebName'])
+    uncensoredname = request.form('WebName')
     website_code = profanity.censor(request.form['WebCode'])
     
     if len(website_code) > MAX_CODE_SIZE:
         return "Error: Website code exceeds the size limit of 5MB."
+    if '*' in website_name:
+        return "Error: Website name cannot contain " + uncensoredname + " " + "Please choose a different name."
 
     # Log IP address and website name, for safety
     ip_address = request.remote_addr
