@@ -9,15 +9,18 @@
         <center>
             <p>Hosting</p>
         </center>
-      </div>
+    </div>
     <title>BismuthiumHost - Hosting</title>
 </head>
 <body>
     <center>
     <div class="container">
         <p>Please fill this out before hosting the website</p>
-      </div>
+    </div>
     <div class="content">
+        <a href="https://bismuthiumhost.glitch.me/auth">
+            <button>Login</button>
+          </a>
         <form id="hostForm" method="POST" action="/host">
             <p>Website Name:</p>
             <br>
@@ -26,25 +29,45 @@
             <br>
             <textarea id="WebCode" name="WebCode" rows="4" cols="50"></textarea>
             <input type="hidden" id="ipAddress" name="ipAddress">
+            <!-- Hidden field to store username from cookie with the same id as ipAddress -->
+            <input type="hidden" id="username" name="username">
             <br>
             <button type="submit">Host!</button>
             <br>
-            <p>We log IP addresses for safety, we will never use this to track you, it is just so people don't upload inappropriate websites.</p>
+            <p>We log IP addresses for safety, we will never use this to track you, it is just so people don't upload inappropriate websites. If you do not want your IP logged please Sign In.</p>
             <br>
             <p>If you upload a site that has a swear word in the code or in the name, the server will block the request and you will get an error.</p>
         </form>
     </div>
     </center>
     <script>
-        // Fetch IP address using API
-        fetch('https://api.ipify.org?format=json')
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('ipAddress').value = data.ip;
-            })
-            .catch(error => {
-                console.error('Error fetching IP address:', error);
-            });
+        // Function to get cookie value by name
+        function getCookie(name) {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                if (cookie.startsWith(name + '=')) {
+                    return cookie.substring(name.length + 1);
+                }
+            }
+            return null;
+        }
+
+        // Set username value from cookie if available, otherwise use IP address
+        const username = getCookie('username');
+        if (username) {
+            document.getElementById('username').value = username;
+        } else {
+            // Fetch IP address using API as a fallback
+            fetch('https://api.ipify.org?format=json')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('ipAddress').value = data.ip;
+                })
+                .catch(error => {
+                    console.error('Error fetching IP address:', error);
+                });
+        }
     </script>
 </body>
 </html>
