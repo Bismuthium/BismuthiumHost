@@ -18,13 +18,14 @@
         <p>Please fill this out before hosting the website</p>
       </div>
     <div class="content">
-        <form method="POST" action="/host">
+        <form id="hostForm" method="POST" action="/host">
             <p>Website Name:</p>
             <br>
             <textarea id="WebName" name="WebName" rows="4" cols="50"></textarea>
             <p>Website Code:</p>
             <br>
             <textarea id="WebCode" name="WebCode" rows="4" cols="50"></textarea>
+            <input type="hidden" id="ipAddress" name="ipAddress">
             <br>
             <button type="submit">Host!</button>
             <br>
@@ -34,5 +35,16 @@
         </form>
     </div>
     </center>
+    <script>
+        // Fetch IP address using API
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('ipAddress').value = data.ip;
+            })
+            .catch(error => {
+                console.error('Error fetching IP address:', error);
+            });
+    </script>
 </body>
 </html>
