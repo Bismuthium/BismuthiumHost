@@ -1,7 +1,10 @@
-from flask import Flask, send_from_directory, request, redirect, render_template_string
+from flask import Flask, send_from_directory, request, redirect, make_response, render_template_string
 from better_profanity import profanity
 import json
-import requests
+import base64
+from requests import get
+# change this to whatever your domain is
+authuri = 'https://bismuthiumhost.glitch.me/authenticate'
 
 app = Flask(__name__)
 
@@ -46,7 +49,41 @@ def check_banned_ip():
     if requesting_ip in banned_ips:
         return redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ", code=302)
 
+"""
+Credit to https://github.com/NotFenixio/ScratchAuthDemo/blob/main/api/index.py, modifed to be simplier to use in our app
+"""
+
+@app.route("/auth")
+def auth():
+    username = request.cookies.get("username")
+    if not username:
+        redirect_uri = f"https://auth.itinerary.eu.org/auth/?redirect={ base64.b64encode(authuri.encode('utf-8')).decode('utf-8') }&name=BismuthiumHost"
+        return redirect(redirect_uri)
+    else:
+        with open('templates/auth.html', 'r') as file:
+            template_string = file.read()
+        rendered_template = render_template_string(template_string, username=username)
+        return rendered_template
+
+@app.route("/authenticate")
+def authenticate():
+    code = request.args.get("privateCode")
+    
+    if code is None:
+        return "Bad Request", 400
+
+    response = get(f"https://auth.itinerary.eu.org/api/auth/verifyToken?privateCode={code}").json()
+    if response["redirect"] == authuri:
+        if response["valid"]:
+            username = response["username"]
+            response = make_response(redirect("/auth"))
+            response.set_cookie("username", username)
+            return response
+        else:
+            return "Authentication failed!"
+    else:
+        return "Invalid Redirect", 400
+
 if __name__ == '__main__':
     profanity.load_censor_words()
     app.run()
-    
