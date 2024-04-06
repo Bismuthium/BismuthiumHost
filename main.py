@@ -5,6 +5,7 @@ import base64
 from requests import get
 # change this to whatever your domain is
 authuri = 'https://bismuthiumhost.glitch.me/authenticate'
+allowed_usernames = ['Mr_rudy']
 
 app = Flask(__name__)
 
@@ -14,6 +15,15 @@ with open('templates/bannedip.json', 'r') as banned_ip_file:
 @app.route('/<path:filename>')
 def static_file(filename):
     return send_from_directory('templates', filename)
+
+@app.route('/admin')
+def admin():
+    if 'username' in request.cookies:
+        username = request.cookies['username']
+        if username in allowed_usernames:
+            return send_from_directory('templates', 'admin.html')
+    
+    return redirect(url_for('https://www.youtube.com/watch?v=dQw4w9WgXcQ'))
 
 @app.route('/')
 def home():
